@@ -1,0 +1,14 @@
+bin/
+target/
+
+# Eclipse WTP adds this all over the bloody place (get rid of it)
+MANIFEST.MF
+
+# Prevent new eclipse config files from being added unintentionally. 
+# Some are already checked in deliberately, but as far as possible we try to rely only on pom.xml 
+.settings/
+.classpath
+.project
+Servers/
+.metadata/
+build/
