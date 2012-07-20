@@ -16,9 +16,10 @@
 
 package com.test;
 
+import org.apache.cordova.DroidGap;
+
 import android.os.Bundle;
 import android.util.Log;
-import com.phonegap.DroidGap;
 
 public class Test extends DroidGap {
 
