@@ -53,7 +53,8 @@ RocknCoder.Pages.page1 = (function () {
 		// cache the selectors to some DOM elements
 		$thePicture = $("#thePicture"),
 		$snapPicture = $("#snapPicture"),
-		$picFrame = $("#picFrame"),
+		$selectPicture = $("#selectPicture"),
+//		$picFrame = $("#picFrame"),
 
 		// once the image is loaded, get its dimensions
 		picLoaded = function () {
@@ -71,6 +72,9 @@ RocknCoder.Pages.page1 = (function () {
 		// a picture has been successfully returned
 		picSuccess = function (imageData) {
 			$thePicture.attr('src', "data:image/jpeg;base64," + imageData).load(picLoaded);
+		},
+		picSuccessUri = function (uri) {
+			$thePicture.attr('src', url).load(picLoaded);
 		},
 		// there was an error, message contains its cause
 		picFail = function (message) {
@@ -99,9 +103,23 @@ RocknCoder.Pages.page1 = (function () {
 				);
 				return false;
 			});
+
+			$selectPicture.unbind('tap').tap(function (event) {
+				event.preventDefault();
+				event.stopPropagation();
+			      // Retrieve image file location from specified source
+			      navigator.camera.getPicture(
+			    		  picSuccessUri, 
+			    		  picFail, 
+			    		  { quality: 50, destinationType: Camera.DestinationType.FILE_URI,
+			        sourceType: Camera.PictureSourceType.PHOTOLIBRARY }
+				);
+				return false;
+			});
 		},
 		pagehide = function () {
 			$snapPicture.unbind('tap');
+			$selectPicture.unbind('tap');
 		};
 	return {
 		pageshow: pageshow,
