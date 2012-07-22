@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.test;
+package org.fuzzydb;
 
 import org.apache.cordova.DroidGap;
 
 import android.os.Bundle;
 import android.util.Log;
 
-public class Test extends DroidGap {
+public class WebView extends DroidGap {
 
-    public Test() {
+    public WebView() {
         super();
         Log.i("Phonegap", "Starting phonegap activity");
     }
