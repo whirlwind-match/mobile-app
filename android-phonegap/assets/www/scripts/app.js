@@ -74,7 +74,7 @@ RocknCoder.Pages.page1 = (function () {
 			$thePicture.attr('src', "data:image/jpeg;base64," + imageData).load(picLoaded);
 		},
 		picSuccessUri = function (uri) {
-			$thePicture.attr('src', url).load(picLoaded);
+			$thePicture.attr('src', uri).load(picLoaded);
 		},
 		// there was an error, message contains its cause
 		picFail = function (message) {
