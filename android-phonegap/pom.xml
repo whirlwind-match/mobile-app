@@ -15,12 +15,13 @@
             <version>2.2.1</version>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- TODO: Install cordova using a profile - with this not in that profile (as it breaks deps) -->
         <dependency>
         	<groupId>org.apache</groupId>
         	<artifactId>cordova</artifactId>
         	<version>1.9.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/libs/cordova-1.9.0.jar</systemPath>
+        	<scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -38,6 +39,29 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					<execution>
+						<id>install-cordova-jar</id>
+						<phase>clean</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+			
+						<inherited>false</inherited>
+						<configuration>
+							<file>${basedir}/libs/cordova-1.9.0.jar</file>
+				        	<groupId>org.apache</groupId>
+				        	<artifactId>cordova</artifactId>
+				        	<version>1.9.0</version>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
