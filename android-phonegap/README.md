@@ -5,7 +5,7 @@ mvn --file install-cordova-pom.xml install
 
 Normal routine
 --------------
-mvn clean install android:apk
-mvn android:emulator-start
+mvn clean install
 mvn android:deploy
+
 
