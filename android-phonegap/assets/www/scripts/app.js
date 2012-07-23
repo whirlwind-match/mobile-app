@@ -72,13 +72,25 @@ RocknCoder.Pages.page1 = (function () {
 		// a picture has been successfully returned
 		picSuccess = function (imageData) {
 			$thePicture.attr('src', "data:image/jpeg;base64," + imageData).load(picLoaded);
+			uploadImage(imageData);
 		},
 		picSuccessUri = function (uri) {
 			$thePicture.attr('src', uri).load(picLoaded);
+//			uploadImage($thePicture.attr('src'));
 		},
 		// there was an error, message contains its cause
 		picFail = function (message) {
 			alert("Failed because: " + message);
+		},
+		uploadImage = function (imageData) {
+//			var url = 'http://localhost:8080/fm-website/image/upload';
+			var url = 'http://alpha.fridgemountain.com/image/upload';
+			var params = {image: imageData};
+			
+			// send the data
+			$.post(url, params, function(data) {
+				alert("Uploaded");
+			});
 		},
 		// pageshow event handler
 		pageshow = function () {
