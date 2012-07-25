@@ -23,8 +23,8 @@
 				<img id="thePicture" />
 			</div>
                 <div>
-<!-- 			 <form id="callAjaxForm" action="http://alpha.fridgemountain.com/image/upload" method="post"  -->
-			 <form id="callAjaxForm" action="http://localhost:8080/fm-website/image/upload" method="post" 
+<!-- 			 <form id="callAjaxForm" action="http://localhost:8080/fm-website/image/upload" method="post"  -->
+			 <form id="callAjaxForm" action="http://alpha.fridgemountain.com/image/upload" method="post" 
 			 	enctype="multipart/form-data" data-ajax="false">
 
 					<fieldset>
@@ -35,10 +35,13 @@
 <!-- 						<input id="description" name="description" placeholder="Description (e.g. model, specification, any damage)" type="text" value=""/> -->
 <!-- 					</fieldset> -->
 			
-					<fieldset data-role="controlgroup" data-type="horizontal">
-						<legend>Category</legend>
-						<select id="category" name="category"><option value="Building Supplies &amp; DIY">Building Supplies &amp; DIY</option><option value="Garden">Garden</option><option value="Furniture">Furniture</option><option value="Computing">Computing</option><option value="Electrical Appliances">Electrical Appliances</option><option value="Clothing">Clothing</option><option value="Children and Family">Children and Family</option><option value="Office">Office</option><option value="Entertainment &amp; Media">Entertainment &amp; Media</option><option value="Vehicles and Parts">Vehicles and Parts</option><option value="Home and Kitchen">Home and Kitchen</option><option value="Books Magazines and Newspapers">Books Magazines and Newspapers</option><option value="Sport &amp; Fitness Equipment">Sport &amp; Fitness Equipment</option><option value="Other Stuff">Other Stuff</option></select>
-					</fieldset>
+
+					<div data-role="fieldcontain">
+						<label for="category">Category</label>
+						<select id="category" name="category" data-native-menu="true" data-theme="b" data-overlay-theme="e">
+						<option data-placeholder="true">Select category...</option>
+						<option value="Building Supplies &amp; DIY">Building Supplies &amp; DIY</option><option value="Garden">Garden</option><option value="Furniture">Furniture</option><option value="Computing">Computing</option><option value="Electrical Appliances">Electrical Appliances</option><option value="Clothing">Clothing</option><option value="Children and Family">Children and Family</option><option value="Office">Office</option><option value="Entertainment &amp; Media">Entertainment &amp; Media</option><option value="Vehicles and Parts">Vehicles and Parts</option><option value="Home and Kitchen">Home and Kitchen</option><option value="Books Magazines and Newspapers">Books Magazines and Newspapers</option><option value="Sport &amp; Fitness Equipment">Sport &amp; Fitness Equipment</option><option value="Other Stuff">Other Stuff</option></select>
+					</div>
 			
 					<fieldset data-role="controlgroup" data-type="horizontal">
 						<legend>Item Condition</legend>
