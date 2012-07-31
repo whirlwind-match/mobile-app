@@ -19,18 +19,18 @@
 			<h1>List an item</h1>
 		</header>
 		<section data-role="content" >
-			<div id="picFrame">
-				<img id="thePicture" />
-			</div>
-                <div>
+            <div>
 <!-- 			 <form id="itemForm" action="http://alpha.fridgemountain.com/image/upload" method="post"  -->
 <!-- 			 	enctype="multipart/form-data" data-ajax="false"> -->
-			 <form id="itemForm" action="http://blah:8080/fm-website/image/upload" method="post" enctype="multipart/form-data" data-ajax="false">
+			 <form id="itemForm"  method="post" enctype="multipart/form-data" data-ajax="false">
 
 					<fieldset>
 						<input id="title" name="title" placeholder="Title (What is it? e.g. Pink iPod Mini)" type="text" value=""/>
 					</fieldset>
 			
+					<div id="picFrame">
+						<img id="thePicture" src="content/images/image_ph.jpg"/>
+					</div>
 
 					<div data-role="fieldcontain">
 						<label for="category">Category</label>
@@ -44,7 +44,7 @@
 						<span><input id="condition1" name="condition" type="radio" value="New"/><label for="condition1">New</label></span><span><input id="condition2" name="condition" type="radio" value="Used"/><label for="condition2">Used</label></span><span><input id="condition3" name="condition" type="radio" value="Spares or Repair"/><label for="condition3">Spares or Repair</label></span>
 					</fieldset>
   
-                    <input type="file" name="file" />
+<!--                     <input type="file" name="file" /> -->
                    
                     <h3 id="notification"></h3>
                     <button data-theme="b" id="submit" type="submit">Submit</button>
@@ -54,7 +54,9 @@
 		<footer data-role="footer" data-position="fixed">
 			<div class="ui-grid-b">
 				<div class="ui-block-a"></div>
-				<div class="ui-block-b"><button data-theme="e" id="snapPicture">Take Picture</button><button data-theme="e" id="selectPicture">Select</button></div>
+				<div class="ui-block-b"><button data-theme="e" id="snapPicture">Take Picture</button>
+<!-- 					<button data-theme="e" id="selectPicture">Select</button> -->
+				</div>
 				<div class="ui-block-c"></div>
 			</div>
 		</footer>

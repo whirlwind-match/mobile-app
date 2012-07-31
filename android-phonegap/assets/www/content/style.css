@@ -15,4 +15,6 @@ section[data-role="content"] {
 #thePicture {
 	display: block;
 	margin: 0 auto;
+	height: auto;
+	width: 90%;
 }
