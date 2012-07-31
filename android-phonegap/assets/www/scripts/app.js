@@ -3,6 +3,10 @@
 "use strict";
 var $, alert, Camera, navigator, window;
 
+var remoteAppBase = "http://192.168.0.4:8080/fm-website/";
+//var remoteAppBase = "http://alpha.fridgemountain.com/";
+
+
 // create our own namespace
 var RocknCoder = RocknCoder || {};
 RocknCoder.Pages = RocknCoder.Pages || {};
@@ -51,7 +55,6 @@ RocknCoder.Dimensions = (function () {
 RocknCoder.Pages.page1 = (function () {
 	var dims,
 		// cache the selectors to some DOM elements
-		$thePicture = $("#thePicture"),
 		$snapPicture = $("#snapPicture"),
 		$selectPicture = $("#selectPicture"),
 //		$picFrame = $("#picFrame"),
@@ -72,7 +75,7 @@ RocknCoder.Pages.page1 = (function () {
 
 			$snapPicture.unbind('tap').tap(snapPictureHandler);
 			$selectPicture.unbind('tap').tap(selectPictureHandler);
-//			$("#submit").click(formUpload);
+			$("#submit").click(formUpload);
 
 		},
 		pagehide = function () {

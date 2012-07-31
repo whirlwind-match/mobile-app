@@ -1,5 +1,34 @@
 
 	var
+		$thePicture = $("#thePicture"),
+		$itemForm = $("#itemForm"),
+	    uploadImage = function (imageURI) {
+	        var options = new FileUploadOptions(),
+	        done = function (r) {
+	            console.log("Code = " + r.responseCode);
+	            console.log("Response = " + r.response);
+	            console.log("Sent = " + r.bytesSent);
+	            alert("Sent");
+	        },
+	        fail = function (error) {
+	        	alert("Failed: " + error.code);
+	        };
+	        
+	        options.fileKey="file";
+	        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+	        options.mimeType="image/jpeg";
+	
+	        var params = new Object();
+	        params.title = $("#title").val();
+	        params.condition = $('input[name=condition]:checked').val();
+	        params.category = $("#category").val();
+	
+	        options.params = params;
+	        options.chunkedMode = false;
+	
+	        var ft = new FileTransfer();
+	        ft.upload(imageURI, remoteAppBase + "image/upload", done, fail, options);
+	    },
 		// once the image is loaded, get its dimensions
 		picLoaded = function () {
 			var width, height;
@@ -19,8 +48,9 @@
 			uploadImage(imageData);
 		},
 		picSuccessUri = function (uri) {
+			console.log("URI=" + uri);
 			$thePicture.attr('src', uri).load(picLoaded);
-			uploadImage($thePicture.attr('src'));
+			uploadImage(uri);
 		},
 		// there was an error, message contains its cause
 		picFail = function (message) {
@@ -56,12 +86,12 @@
 		event.preventDefault();
 		event.stopPropagation();
 		  
-	    var formData = $("#callAjaxForm").serialize();
+	    var formData = $itemForm.serialize();
 	    console.log("Data:" + formData);
 	    $.ajax({
 	        type: "POST",
 	        enctype: "multipart/form-data",
-	        url: "http://localhost:8080/fm-website/image/upload",
+	        url: remoteAppBase + "image/upload",
 	        cache: false,
 	        data: formData
 	/*      ,
